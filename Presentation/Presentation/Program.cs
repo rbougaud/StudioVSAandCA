@@ -1,4 +1,5 @@
 using Application;
+using Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,7 +17,7 @@ builder.Services.AddControllers()
 builder.Services.AddHttpClient().AddDistributedMemoryCache();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddApplication();
-//builder.Services.AddInfrastructure(builder.Configuration["ConnectionString"]!);
+builder.Services.AddInfrastructure(builder.Configuration["ConnectionString"]!);
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
